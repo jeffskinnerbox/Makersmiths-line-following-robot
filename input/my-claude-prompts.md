@@ -2,7 +2,9 @@
 # My Claude Code Prompts
 
 ## Creation of the Specification Document
+
 ### 1st Claude Code Prompt
+
 Read @input/my-vision.md and create a specification document, reflecting the incrementally development in the Line Following Robot (LFR) course.
 I need this this specification document to help prepare me for delivery of the course in about 6 months.
 I want all the components implied bellow (both hardware and software) to be built and tested in advance of the course.
@@ -22,7 +24,9 @@ Use the AskUserQuestions tool for all things that require further clarification.
 ---
 
 ## Creation of the Development Plan Document
+
 ### 2nd Claude Code Prompt
+
 Read @input/my-vision.md and @specification.md and create a development plan, to be called "development-plan.md",
 describing how & when thing are to be created / build.
 The development plan must reflecting the incrementally build approach outline in the Line Following Robot (LFR) course.
@@ -49,10 +53,67 @@ Use the AskUserQuestions tool for all things that require further clarification.
 ---
 
 ## Working With Claude Code
+
 ### Claude Code Interaction
+
 I asked Claude Code to guide me on what needs to be done and it stepped me through the development plan (aka `development-plan.md`)
 
 ---
 
+1st Claude Code Prompt
+Preparing a MakerSpace course syllabus for students from age 12 to 18.
+There could also be adults helping the student, and some adult students without children.
+The students are to build a line following robot as outlined in the documents in this directory system.
+Create a Markdown file for me titled "Syllabus: Evolving Design of Line Following Robot".
 
+The essential components of the syllabus are:
 
+* Course Description: A 5-15 sentence overview of the content and scope.
+* Learning Objectives/Outcomes: A list of measurable, actionable skills or knowledge students will gain
+  (e.g., "By the end of this course, students will be able to...").
+  Identify what students should know or be able to do by the end of the course.
+* Prerequisites: Required prior courses or knowledge.
+* Course Structure/Format: Description of how the class will be taught
+  (e.g., lecture, seminar, hands-on lab, hybrid, flipped)
+* Lessons Breakdown: Start with the final learning goals and assessments, then design the lessons to support them.
+  Break the course into weekly or daily topics and modules. A clear, week-by-week, or topic-by-topic outline.
+* Recommended/Supplemental Studies: Identify required textbooks, software, or readings, videos, etc.
+* Technology Requirements: Hardware/software needed (e.g., tools, specific software, etc.).
+* Assignment Descriptions: There is no grading, quizzes, etc.,
+  but there will be periodic competitions where students will try for the fastest, most agile, etc. robot built by the students.
+
+_Claude Code Prompt:
+In today's industry, what is the definition of a robot?  Give me a definition/description that would be widely agreed upon._
+
+_Claude Code Prompt:
+What is a good definition of automaton and how does it differ from a robot?_
+
+_Claude Code Prompt:
+Give me some examples of elaborate mechanical figures from the 1700s that could "write" with a pen or do other operations?_
+
+_Claude Code Prompt:
+What are the definitions for Open-Loop and Closed-Loop Systems?_
+
+_Claude Code Prompt:
+I have purchased the following item: "MiOYOOW Line Following Robot Car Kit".  Here is the link to the purchasing
+website: <https://www.amazon.com/MiOYOOW-Soldering-Electronics-Following-Competition/dp/B0732Z1FZC?th=1>.  I want
+you to write a description of how this car operates suitable for a high school student.  Assume very basic
+understanding of electronics.  Make the description less than 100 words.
+I will call this the "Theory of Operation" for this car._
+
+_Claude Code Prompt:
+This Theory of Operation is very good but could you improve it if I remove the word count limitation?_
+
+_Claude Code Prompt:
+I would like to evolve the MiOYOOW Line Following Robot Car so that it becomes a more effective robot.
+Specifically, I would like to change the LDR sensors (e.g. more sensors, different type of sensors, etc.)
+to get better overall performance (e.g. less wandering off the line, navigate successfully sharp turns in the line, etc.).
+Recommended what I could do._
+
+_Claude Code Prompt:
+I plan to teach a makerspace class for 12+ year old.
+The topic is a line following robot that I wish to evolve its capabilities from IR sensor pair,
+to IR sensor array, to using PID controller, to finely a Q-Learning controller.
+I want to use simple brush motors and a Raspberry Pi Pico.
+I need a kit solution that I can use and incrementally build up the capabilities over a series of classes.
+Can you give me a list of candidate kits that I could potentially use?_
