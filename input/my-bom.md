@@ -26,7 +26,6 @@ These items required by each student:
 |:-----:|:-----:|:-----:|:-----:|:--------:|
 | Emo Smart Robot Car Chassis Kit | 1 | $13.00 | [Amazon][01] | car body for building robot  |
 | 8 x AA Battery Holder | 1 | $3.50 | [Amazon][02] | 12V power source  |
-| 6 x AA Battery Holder | 1 | $3.50 | [Amazon][03] | 9V power source  |
 | 9V Battery Clip Connector | 1 | $0.50 | [Amazon][05] | 9V power source  |
 | 5V Buck Converter Module | 1 | $1.00 |[Amazon][09] | board to interface with MCU |
 | Raspberry Pi Pico W | 1 | $12.00 | [Amazon][07]| MCU for addvanced features |
@@ -39,7 +38,6 @@ These items required by each student:
 
 [01]:https://www.amazon.com/gp/product/B01LXY7CM3/
 [02]:https://www.amazon.com/ZZHXSM-Battery-Thicken-Standard-Connector/dp/B0BTLTK2LX/
-[03]:https://www.amazon.com/dp/B0G5NZDB94/
 [04]:https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/
 [05]:https://www.amazon.com/Battery-Clip-Hard-Electronics-I-Type/dp/B0DRZWN3BN/?th=
 [06]:https://www.amazon.com/Infrared-Avoidance-Transmitting-Receiving-Photoelectric/dp/B07PFCC76N?th=1
