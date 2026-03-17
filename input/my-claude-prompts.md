@@ -1,6 +1,6 @@
 
 # My Claude Code Prompts
-Start with the following:
+Start with the following after entering Claude Code:
 
 ```bash
 # clear claude code's contest
@@ -9,13 +9,19 @@ Start with the following:
 # initialize the CLAUDE.md file
 /init
 
+# set model to opus
+/model opus
+
 # use planning mode
-/mode plan
+/plan
+
+# work hard
+/effort high
 ```
 
 ## Creation of a Course Syllabus
 ### 1st Claude Code Prompt
-Read the @input/*.md file only.
+Read the @input/*.md files only.
 From this, you are to create a course syllabus document using the syllabus_generator skill.
 Place your document in the file @docs/lfr-syllabus.md.
 
@@ -44,8 +50,14 @@ Start with the following:
 # initialize the CLAUDE.md file
 /init
 
+# set model to opus
+/model opus
+
 # use planning mode
-/mode plan
+/plan
+
+# work hard
+/effort high
 ```
 
 ### 2nd Claude Code Prompt
@@ -78,8 +90,14 @@ Start with the following:
 # initialize the CLAUDE.md file
 /init
 
+# set model to opus
+/model opus
+
 # use planning mode
-/mode plan
+/plan
+
+# work hard
+/effort high
 ```
 
 
@@ -89,7 +107,7 @@ Along with CLAUDE.md, read only @input/*.md and @docs/*.md files.
 Create a specification document, reflecting the incrementally development in the Line Following Robot (LFR) course.
 I need this this specification document to help prepare me for delivering the course and all software required for the course.
 I want all the components implied bellow (both hardware and software) to be built and tested in advance of the course.
-Place your creation in the file @docs/lfr-lesson-plan.md.
+Place your creation in the file @docs/lfr-specification.md.
 
 I want the LFR software to be built in a modular form, such that, a software subsystem in step N
 can be pulled out a replaced with a new subsystem in step N+1 (e.g. PID Controller replaced with Q-Learning Controller)
@@ -97,15 +115,13 @@ Make sure you include the Line Track Designer and LFR Simulators software in thi
 I plan to build and test all software prior to the start of the course.
 Think harder about the software architecture and testing of the of this project.
 
-Within @docs/lfr-specification.md, include this prompt,
+Within the document you create, include this prompt,
 all question you ask me, along with my responses.
 Place this in an appendix and reference it at the beginning of the development plan
 and anywhere else in the text when its a useful reference.
 
 In a subsequent steps, I need this this specification document to help prepare a detailed development plan.
 Think Very Hard about what must be specified in the specification document so a robust development plan can be created.
-
-As a final step, review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
 
 I expect there will be some issues,
 so use the AskUserQuestions tool for all things that require further clarification.
@@ -127,7 +143,7 @@ Start with the following:
 ```
 
 
-### 2nd Claude Code Prompt
+### 4th Claude Code Prompt
 
 Along with CLAUDE.md, read only @input/*.md and @docs/*.md files.
 Create create a development plan, to be called @docs/development-plan.md,
@@ -148,21 +164,23 @@ Within this phased plan, there will be a sets of sequenced phases, when complete
 are called a milestone.
 A milestone will contain all the required software for a specific class day within the course.
 
-Produce the plan as a living document it can update as the project evolves,
+Produce the plan as a living document so it can be update as the project evolves,
 not just a one-time artifact.
 I want it to serves as an ongoing reference rather than going stale after the first few sessions.
 Given the scope of this project — firmware, a simulator, a track designer, and incremental design sessions —
-I want plan to save significant back-and-forth with Claude Code over the course of development.
+I want this plan to save significant back-and-forth with Claude Code over the course of development.
 
-Within the development plan document you create include this prompt,
+Within the document you create, include this prompt,
 all question you ask me, along with my responses.
 Place this in an appendix and reference it at the beginning of the development plan
 and anywhere else in the text when its a useful reference.
 
+Think Hard about what must be done to create a robust plan.
+
 As a final step, review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
 
-Think Hard about what must be done to create a robust plan.
-Use the AskUserQuestions tool for all things that require further clarification.
+I expect there will be some issues,
+so use the AskUserQuestions tool for all things that require further clarification.
 
 ---
 

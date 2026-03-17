@@ -2,7 +2,7 @@
 # My Vision for a Line Following Robot Course at Makersmiths
 
 I'm preparing for a makerspace course concerning the building & testing of a Line Following Robot (LFR).
-Below is my vision of how the course will unfold over time.
+Below is my vision of the courses goals, audience, structure, tools needed, and the course activities over time.
 
 ## Line Following Robot Course
 This course has not been offered in the past so all materials need for this course must be created.
@@ -60,7 +60,7 @@ This means we have a total of 6 LFR to be built during the course
 
 ### Course Overall Structure
 
-There will be a single class instructor and and a single developer supporting this project.
+There will be a single class instructor, who is also the developer supporting this project.
 There is not a fixed class schedule; the number of classes used is driven by the courses goals.
 
 ### Course Line Track Designer
@@ -83,9 +83,9 @@ I would like to show how adjusting the PID tuning parameters effect the behavior
 or how the Reflectance Sensor Array improves performance of the LFR.
 
 ### Course Bill of Materials (BOM)
-See the @/input/bom.md file
+See the `input/my-bom.md` file
 
-The [Raspberry Pi Pico W][26] has [26 pinouts designated as GPIO/PIO/PWM][38].
+The [Raspberry Pi Pico W][06] has [26 pinouts designated as GPIO/PIO/PWM][38].
 When the Raspberry Pi Pico W is installed in the Robotics Motor Driver Board,
 some of those pins are used but ~18 are unoccupied and can be used for the LFR evolving design.
 
@@ -109,7 +109,7 @@ change of direction to extract greater capability from the LFR.
    but using a more powerful platform and over a series of classes.
    Their LFR will evolve, over several design sessions, to include increasing capabilities
    which will making it a more effective LFR.
-   The instructor will further motive the students by
+   The instructor will further motivate the students by
    describing how there exists many LFR competitive events around the world they could join.
    The instructor will also discuss, at a very high level,
    increased capabilities that will be given to their LFR via the multiple design session.
@@ -119,7 +119,7 @@ change of direction to extract greater capability from the LFR.
    The students first task is to [assemble this kit][25].
 1. The student needs more than this car chassis kit to create a LFR,
    so students will also be given
-   [8 x AA Battery Holder][03] for more power to the motors,
+   [8 x AA Battery Holder][03] to power sensors via the 5V Buck Converter,
    [Raspberry Pi Pico W][06] to create a more powerful brain,
    [Robotics Motor Driver Board][04] to enable variable motor speed & direction,
    [IR Emitter/Phototransistor Pair][05] for improved line sensing,

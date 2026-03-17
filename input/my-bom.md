@@ -12,29 +12,31 @@ and create the project during the execution this course.
 * **Software -** app, websites, programs used to configure or create the code or data for the project (typically not cost)
 * **Code Blocks -** software provided by the instructor to create the project (no charge for this)
 
+> **Note:** The BOM is the single source of truth for all purchasing information.
+
 ## Demonstration Unit for Instruction
 
 | Item | Quantity | Unit Cost | Source | Notes |
 |:-----:|:-----:|:-----:|:-----:|:--------:|
-| MiOYOOW Line Following Robot Car Kit | 1 | TBD | [Amazon][30] | instructor demo only; 1 total, not built by students |
+| MiOYOOW Line Following Robot Car Kit | 1 | $10.00 | [Amazon][30] | instructor demo only; 1 total, not built by students |
 
 
 ## Hardware for LFR
-These items required by each student:
+These items required by each LFR unit (5 students + 1 instructor = 6 units):
 
 | Item | Quantity | Unit Cost | Source | Notes |
 |:-----:|:-----:|:-----:|:-----:|:--------:|
 | Emo Smart Robot Car Chassis Kit | 1 | $13.00 | [Amazon][01] | car body for building robot  |
 | 8 x AA Battery Holder | 1 | $3.50 | [Amazon][02] | 12V power source  |
 | 9V Battery Clip Connector | 1 | $0.50 | [Amazon][05] | 9V power source  |
-| 5V Buck Converter Module | 1 | $1.00 |[Amazon][09] | board to interface with MCU |
-| Raspberry Pi Pico W | 1 | $12.00 | [Amazon][07]| MCU for addvanced features |
+| 5V Buck Converter Module | 1 | $1.00 |[Amazon][09] | steps 12V to 5V for sensor power |
+| Raspberry Pi Pico W | 1 | $12.00 | [Amazon][07]| MCU for advanced features |
 | Robotics Motor Driver Board | 1 | $19.00 | [PiShop.us][08]| motor controller board to move wheels |
-| IR Emitter/Phototransistor Pair | 1 | $5.00 |[Amazon][06] | initial line sensor; left + right detector pair (replaced at DS5) |
+| IR Emitter/Phototransistor Pair | 1 | $5.00 |[Amazon][06] | initial line sensor; left + right detector pair (replaced at DS6) |
 | QTRX-MD-08RC Reflectance Sensor Array | 1 | $17.00 | [Pololu][10] | sensor array to detect line |
-| Speed Sensor Module | 2 | $1.25 | [Amazon][31] | one per wheel; IR Optocoupler for Motor Speed Detection  (DS7) |
-| Speed Sensor Module | 2 | $1.25 | [Amazon][31B] | one per wheel; IR Infrared Slotted Optical Optocoupler Speed Measuring Sensor (DS7) |
-| 400 Pin Solderless Prototype Board | 1 | $1.25 |[Amazon][04] | board to interface with MCU |
+| Speed Sensor Module | 2 | $1.25 | [Amazon][31] | one per wheel; IR Optocoupler for Motor Speed Detection  (DS9) |
+| 400 Pin Solderless Prototype Board | 1 | $1.25 |[Amazon][04] | breadboard for wiring connections |
+| QTRX Sensor Array Mounting Hardware | 1 | $0.00 | Makersmiths | standoffs or bracket to mount QTRX under chassis; fabricate at Makersmiths (3D print or laser cut) |
 
 [01]:https://www.amazon.com/gp/product/B01LXY7CM3/
 [02]:https://www.amazon.com/ZZHXSM-Battery-Thicken-Standard-Connector/dp/B0BTLTK2LX/
@@ -43,11 +45,10 @@ These items required by each student:
 [06]:https://www.amazon.com/Infrared-Avoidance-Transmitting-Receiving-Photoelectric/dp/B07PFCC76N?th=1
 [07]:https://www.amazon.com/Raspberry-Pi-Pico-Wireless-Bluetooth/dp/B0B5H17CMK
 [08]:https://www.pishop.us/product/robotics-board-for-raspberry-pi-pico/
-[09]:https://www.amazon.com/Converter-Module-5V-30V-Voltage-Regulator/dp/B0DKTMGBHL/
+[09]:https://www.amazon.com/dp/B0F1WB3LJ5?th=1
 [10]:https://www.pololu.com/product/4348
 [30]:https://www.amazon.com/MiOYOOW-Soldering-Electronics-Following-Competition/dp/B07ZH4XLQ3?th=1
 [31]:https://www.amazon.com/DAOKAI-Comparator-Measuring-Optocoupler-Detection/dp/B0B2NSQJDL
-[31B]:https://www.amazon.com/DAOKAI-Infrared-Optocoupler-Measuring-Measurement/dp/B09TK2H9NY
 
 ## Supplies for LFR
 These minor electronic parts will be shared among all the students:
@@ -55,8 +56,7 @@ These minor electronic parts will be shared among all the students:
 | Item | Quantity | Total Cost | Source | Notes |
 |:-----:|:-----:|:-----:|:-----:|:--------:|
 | Pin Header Connection |    20     | $6 | [Amazon][11] | 20 pack kit can be shared by all |
-| 8 x AA Batteries |    20     | $10.00 | [Amazon][12] | 20 pack kit can be shared by all |
-| 6 x AA Batteries |    20     | $10.00 | [Amazon][12] | 20 pack kit can be shared by all |
+| 8 x AA Batteries |    60     | $30.00 | [Amazon][12] | 3× 20-pack kits shared by all (6 units × 8 = 48 needed + spares) |
 | 9V Batteries |    12     | $18.00 | [Amazon][13] | 12 pack kit can be shared by all |
 | White 8.5x11 inch paper |    TBD     | NA | Makersmiths | paper for Robot Car line course |
 
@@ -70,7 +70,7 @@ These minor electronic parts will be shared among all the students:
 |:-----:|:-----:|:-----:|:--------:|
 | Protective Eye Gear | 1 | Student | |
 | Soldering Iron | 1 | Makersmiths | |
-| Spoll of Soldering | 1 | Makersmiths | |
+| Spool of Solder | 1 | Makersmiths | |
 | Solder Flux | 1 | Makersmiths | |
 | Solder Wick | 1 | Makersmiths | |
 | SiliconTip Solder Sucker | 1 | Makersmiths | |
