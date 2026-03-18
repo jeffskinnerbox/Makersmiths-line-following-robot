@@ -14,7 +14,7 @@
 | Course Syllabus | `docs/lfr-syllabus.md` | Defines learning objectives, class schedule, and course structure |
 | Lesson Plan | `docs/lfr-lesson-plan.md` | Detailed per-class teaching guide referencing this spec's modules |
 | Bill of Materials | `input/my-bom.md` | Single source of truth for costs, quantities, and sourcing |
-| Development Plan | `docs/development-plan.md` | Phased build schedule derived from this spec (to be created) |
+| Development Plan | `docs/lfr-development-plan.md` | Phased build schedule derived from this spec (to be created) |
 | Instructor Vision | `input/my-vision.md` | Original course vision and Design Session sequence |
 
 > **Convention:** This spec defines *what* must be built and *how it must behave*. The development plan defines *when* and *in what order* to build it. The BOM defines *what to buy and where*. Cost/pricing/sourcing information belongs exclusively in the BOM.

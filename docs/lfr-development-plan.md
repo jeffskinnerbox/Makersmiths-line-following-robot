@@ -769,7 +769,7 @@ Every Design Session (DS3–DS12) is covered by a milestone:
 The following prompt was used to generate this development plan (reproduced verbatim from the instructor's prompt document):
 
 > Along with CLAUDE.md, read only @input/*.md and @docs/*.md files.
-> Create a development plan, to be called @docs/development-plan.md,
+> Create a development plan, to be called @docs/lfr-development-plan.md,
 > describing how & when things are to be created / built.
 > The development plan must reflect the incremental build approach outlined in the Line Following Robot (LFR) course.
 >

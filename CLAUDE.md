@@ -53,7 +53,7 @@ Generated docs in `docs/` and their current state:
 | 1 | Syllabus | `docs/lfr-syllabus.md` | Done |
 | 2 | Lesson Plan | `docs/lfr-lesson-plan.md` | Done |
 | 3 | Specification | `docs/lfr-specification.md` | Done |
-| 4 | Development Plan | `docs/development-plan.md` | Done |
+| 4 | Development Plan | `docs/lfr-development-plan.md` | Done |
 
 ## Workflow for Generating Course Documents
 
@@ -62,7 +62,7 @@ Follow the sequence in `input/my-claude-prompts.md`. Each step builds on prior d
 1. Syllabus → `docs/lfr-syllabus.md` (from `input/*.md` only)
 2. Lesson plan → `docs/lfr-lesson-plan.md` (from `input/*.md` + `docs/*.md`)
 3. Specification → `docs/lfr-specification.md` (from `input/*.md` + `docs/*.md`)
-4. Development plan → `docs/development-plan.md` (from `input/*.md` + `docs/*.md`)
+4. Development plan → `docs/lfr-development-plan.md` (from `input/*.md` + `docs/*.md`)
 
 Always start a new document generation session with:
 
@@ -105,7 +105,7 @@ markdownlint-cli2 docs/*.md lecture_notes/*.md
 
 ## File Naming Conventions
 
-- Course docs: `docs/lfr-{type}.md` (e.g., `lfr-syllabus.md`, `lfr-lesson-plan.md`, `lfr-specification.md`, `development-plan.md`)
+- Course docs: `docs/lfr-{type}.md` (e.g., `lfr-syllabus.md`, `lfr-lesson-plan.md`, `lfr-specification.md`, `lfr-development-plan.md`)
 - Lecture notes: `lecture_notes/{doctype}-{topic}.md` (e.g., `theory-of-operation-mioyoow-line-follower.md`)
 - `.bak` files are gitignored — safe to create per backup convention
 
