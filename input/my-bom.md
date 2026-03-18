@@ -55,6 +55,7 @@ These minor electronic parts will be shared among all the students:
 
 | Item | Quantity | Total Cost | Source | Notes |
 |:-----:|:-----:|:-----:|:-----:|:--------:|
+| Heavy Duty Double Sided Tape  | 1 |$10.00 | [Amazon][50] | 9 feet of tap, shared by all |
 | Pin Header Connection |    20     | $6 | [Amazon][11] | 20 pack kit can be shared by all |
 | 8 x AA Batteries |    60     | $30.00 | [Amazon][12] | 3× 20-pack kits shared by all (6 units × 8 = 48 needed + spares) |
 | 9V Batteries |    12     | $18.00 | [Amazon][13] | 12 pack kit can be shared by all |
@@ -63,6 +64,7 @@ These minor electronic parts will be shared among all the students:
 [11]:https://www.amazon.com/HiLetgo-20pcs-2-54mm-Single-Header/dp/B07R5QDL8D/
 [12]:https://www.amazon.com/AmazonBasics-Performance-Alkaline-Batteries-20-Pack/dp/B07KWYGTC6/?th=1
 [13]:https://www.amazon.com/Amazon-Basics-Performance-All-Purpose-Batteries/dp/B0B4RSNDPG/?th=1
+[50]:https://www.amazon.com/dp/B07VNSXY31?th=1
 
 ## Tools for LFR
 

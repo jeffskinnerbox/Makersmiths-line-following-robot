@@ -1,0 +1,17 @@
+# LFR Course — Ubuntu Desktop Python Dependencies
+# NOTE: Use Python 3.12 — pygame has no prebuilt wheel for 3.14+
+# Create venv and install:
+#   python3.12 -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# Line Track Designer
+reportlab
+jsonschema
+
+# LFR Simulator
+pygame
+numpy
+
+# Testing (all projects)
+pytest

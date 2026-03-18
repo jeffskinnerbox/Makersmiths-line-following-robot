@@ -38,6 +38,9 @@ can be created for the Line Following Robot.
 I expect there will be some issues,
 so use the AskUserQuestions tool for all things that require further clarification.
 
+#### Finishing Prompt
+Review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
+
 ---
 
 ## Creation of a Course Lesson Plan
@@ -77,6 +80,9 @@ can be created for the Line Following Robot.
 
 I expect there will be some issues,
 so use the AskUserQuestions tool for all things that require further clarification.
+
+#### Finishing Prompt
+Review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
 
 ---
 
@@ -126,6 +132,9 @@ Think Very Hard about what must be specified in the specification document so a 
 I expect there will be some issues,
 so use the AskUserQuestions tool for all things that require further clarification.
 
+#### Finishing Prompt
+Review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
+
 ---
 
 ## Creation of the Development Plan Document
@@ -146,7 +155,7 @@ Start with the following:
 ### 4th Claude Code Prompt
 
 Along with CLAUDE.md, read only @input/*.md and @docs/*.md files.
-Create create a development plan, to be called @docs/development-plan.md,
+Create create a development plan, to be called @docs/lfr-development-plan.md,
 describing how & when thing are to be created / build.
 The development plan must reflecting the incrementally build approach outline in the Line Following Robot (LFR) course.
 
@@ -177,10 +186,11 @@ and anywhere else in the text when its a useful reference.
 
 Think Hard about what must be done to create a robust plan.
 
-As a final step, review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
-
 I expect there will be some issues,
 so use the AskUserQuestions tool for all things that require further clarification.
+
+#### Finishing Prompt
+Review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
 
 ---
 
@@ -201,7 +211,7 @@ Start with the following:
 
 ### Claude Code Interaction
 
-I asked Claude Code to guide me on what needs to be done and it stepped me through the development plan (aka `development-plan.md`)
+I asked Claude Code to guide me on what needs to be done and it stepped me through the development plan (aka `lfr-development-plan.md`)
 
 ---
 

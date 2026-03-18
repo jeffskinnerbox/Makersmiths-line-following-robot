@@ -163,24 +163,33 @@ Each milestone contains one or more phases. Each phase has a specific deliverabl
 * Git repository initialized with directory structure per spec §3.2
 * Python virtual environment for desktop development (pytest, reportlab, pygame, numpy)
 * `markdownlint-cli2` configured and working on docs
+* CircuitPython 10.1.4 flashed on instructor Pico W (unit 01) — manual step, see [circuitpython.org/board/raspberry_pi_pico_w](https://circuitpython.org/board/raspberry_pi_pico_w/)
 * Mu Editor installed and tested
 
 **Test-gates:**
 1. `pytest --version` runs successfully in the virtual environment
 2. `markdownlint-cli2 docs/*.md` runs without errors
-3. Mu Editor opens and connects to a Pico W (or recognizes the serial port)
+3. Flash CircuitPython 10.1.4 on instructor Pico W (manual): follow [circuitpython.org/board/raspberry_pi_pico_w](https://circuitpython.org/board/raspberry_pi_pico_w/) — hold BOOTSEL, drag-and-drop `.uf2` to RPI-RP2 drive, confirm CIRCUITPY drive mounts
+4. Mu Editor opens and connects to the Pico W (REPL accessible)
 
-#### Phase 0.2: CircuitPython Flash & Hardware Verification
+#### Phase 0.2: Hardware Verification
 
 **Deliverables:**
-* CircuitPython 10.1.4 flashed on instructor's Pico W (unit 01)
-* CIRCUITPY drive mounts and is writable
-* Basic hardware check: motors spin, IR sensors read
+* `src/firmware/test_m02.py` — hardware verification script (copy to `CIRCUITPY/main.py` to run)
+* CIRCUITPY drive confirmed writable
+* Both motors confirmed spinning via `test_m02.py` output
 
 **Test-gates:**
 1. CircuitPython 10.1.4 boots on the Pico W (REPL accessible via Mu Editor)
-2. `gc.mem_free()` reports at least 100 KB available
-3. Manual motor test: both wheels spin when commanded from REPL
+2. `gc.mem_free()` reports at least 100 KB available — verified by `test_m02.py` Gate 1+2 output
+3. Both wheels spin when `test_m02.py` runs — copy to `CIRCUITPY/main.py`, confirm "PASS" in serial console
+
+**Setup for test-gate 3:**
+* Pico W must be seated in the Kitronik Robotics Board
+* 9V battery connected to the Kitronik board (motors won't spin without it)
+* Copy `src/firmware/test_m02.py` to `CIRCUITPY/main.py`
+* Open Mu Editor serial console and press reset — output appears on boot
+* Re-run anytime from REPL: `test_motors()`
 
 ---
 
@@ -652,7 +661,7 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 
 | Milestone | Description | Target Week | Status | Date Completed | Notes |
 |:----------|:-----------|:-----------|:-------|:---------------|:------|
-| M0 | Project Bootstrap | Week 1 | Not Started | — | — |
+| M0 | Project Bootstrap | Week 1 | Complete | 2026-03-17 | — |
 | M1 | Line Track Designer | Week 2 | Not Started | — | — |
 | M2 | Firmware Foundation DS3–DS5 | Week 4 | Not Started | — | — |
 | M3 | Firmware Sensor Array DS6–DS7 | Week 6 | Not Started | — | Blocked by QTRX delivery for HW testing |
@@ -668,8 +677,8 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 
 | Milestone | Phase | Description | Status | Date Completed | Notes |
 |:----------|:------|:-----------|:-------|:---------------|:------|
-| M0 | 0.1 | Repo & tooling setup | Not Started | — | — |
-| M0 | 0.2 | CircuitPython flash & HW verification | Not Started | — | — |
+| M0 | 0.1 | Repo & tooling setup | Complete | 2026-03-17 | All 4 gates passed |
+| M0 | 0.2 | Hardware verification | Complete | 2026-03-17 | All 3 gates passed |
 | M1 | 1.1 | Track Designer core engine | Not Started | — | — |
 | M1 | 1.2 | Course track designs | Not Started | — | — |
 | M2 | 2.1 | Firmware architecture & motor driver | Not Started | — | — |

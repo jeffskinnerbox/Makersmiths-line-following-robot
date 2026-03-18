@@ -46,6 +46,9 @@
 *.bak
 q_table.json
 
+# Generated output (PDFs, etc.)
+src/track_designer/output/*.pdf
+
 
 ### ------------------------------- General -------------------------------- ###
 

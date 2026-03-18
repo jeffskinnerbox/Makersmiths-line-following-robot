@@ -1,5 +1,5 @@
 
-# My Vision for a Line Following Robot Course at Makersmiths
+# 1 My Vision for a Line Following Robot Course at Makersmiths
 
 I'm preparing for a makerspace course concerning the building & testing of a Line Following Robot (LFR).
 Below is my vision of the courses goals, audience, structure, tools needed, and the course activities over time.
