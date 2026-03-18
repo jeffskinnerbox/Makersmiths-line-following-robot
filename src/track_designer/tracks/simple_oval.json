@@ -1,0 +1,12 @@
+{
+    "name": "Simple Oval",
+    "description": "Gentle curves, wide track — validates basic 2-sensor line following",
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "line_width_mm": 19,
+    "tiles": [
+        ["curve_ne",  "straight_h", "straight_h", "curve_nw"  ],
+        ["straight_v", "blank",     "blank",       "straight_v"],
+        ["curve_se",  "straight_h", "straight_h", "curve_sw"  ]
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "Figure Eight",
+    "description": "Two loops sharing a center crossover — tests variable speed control (slow curves, fast straights)",
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "line_width_mm": 19,
+    "tiles": [
+        ["curve_ne",  "curve_nw",  "curve_ne",  "curve_nw" ],
+        ["straight_v", "straight_v", "straight_v", "straight_v"],
+        ["curve_se",  "curve_sw",  "curve_se",  "curve_sw" ]
+    ]
+}

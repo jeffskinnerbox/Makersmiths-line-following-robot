@@ -1,0 +1,12 @@
+{
+    "name": "Figure Eight with Chicane",
+    "description": "Single loop with S-curve transitions at top — tests speed sensor feedback and consistency through direction changes",
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "line_width_mm": 19,
+    "tiles": [
+        ["curve_ne",  "chicane_lr", "chicane_rl", "curve_nw" ],
+        ["straight_v", "blank",     "blank",      "straight_v"],
+        ["curve_se",  "straight_h", "straight_h", "curve_sw" ]
+    ]
+}

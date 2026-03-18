@@ -594,7 +594,7 @@ The Ziegler-Nichols method can be used as a systematic alternative
 * `stop()`: Sets all motor PWM to 0 immediately
 
 **Implementation notes:**
-* Use the Kitronik official CircuitPython library or adapt its PCA9685 register writes
+* Uses direct PCA9685 register writes — no external library. Same approach as `src/firmware/test_m02.py`. Channel map: M1_FWD=8, M1_REV=9, M2_FWD=10, M2_REV=11.
 * Motor 1 = left wheel, Motor 2 = right wheel (verify physical wiring at first build)
 * Initialize PCA9685 at 50 Hz (default), or potentially higher for smoother motor control (**VERIFY** if 100–200 Hz is supported and beneficial)
 * Include a deadband: speeds below ±0.05 are treated as 0 to prevent motor whine at very low duty cycles
@@ -741,7 +741,7 @@ The `config.py` file is the **only file students need to edit** when swapping De
 
 | Library | Purpose | Notes |
 |:--------|:--------|:------|
-| `KitronikPicoRoboticsBoard.py` | PCA9685 motor control | From Kitronik GitHub repo. Evaluate for use or adapt into `motors/kitronik.py`. |
+| `KitronikPicoRoboticsBoard.py` | PCA9685 motor control | Evaluated; **not used**. `motors/kitronik.py` uses direct PCA9685 register writes (same pattern as `test_m02.py`) — no external library dependency. |
 
 > **VERIFY:** Test that all needed modules fit in Pico W RAM simultaneously. If memory is tight at DS12 (Q-Learning + WiFi + QTRX + speed sensors), consider: (a) using `.mpy` compiled modules, (b) reducing Q-table size, (c) removing unused modules from filesystem.
 

@@ -1,0 +1,12 @@
+{
+    "name": "Competition Course",
+    "description": "Instructor-designed final competition course — all elements, maximum complexity, used for DS12-DS13 class competition",
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "line_width_mm": 19,
+    "tiles": [
+        ["sharp_90_ne", "start_h",    "chicane_lr", "curve_nw"  ],
+        ["cross",       "blank",      "blank",      "straight_v"],
+        ["curve_se",    "straight_h", "chicane_rl", "curve_sw"  ]
+    ]
+}

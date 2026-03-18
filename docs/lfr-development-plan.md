@@ -105,8 +105,8 @@ These decisions are resolved upfront (drawn from spec §9 and planning Q&A). The
 | 4 | **Track Designer interface** | JSON config + CLI | No GUI needed; JSON track definitions, CLI for generate/validate. See spec [Appendix A, Q6]. |
 | 5 | **Firmware modularity** | Plugin modules + abstract base classes | Swap subsystems by changing `config.py`. See spec §3.1. |
 | 6 | **WiFi + control loop coexistence** | Cooperative polling (single loop) | No threading/asyncio. Main loop calls `server.poll()` each iteration. See spec §3.8. |
-| 7 | **Motor control** | Kitronik library via I2C/PCA9685 | Evaluate Kitronik official CircuitPython library; adapt if needed. See spec §3.6. |
-| 8 | **Firmware testing** | Desktop pytest + on-hardware manual tests | Conditional imports so firmware modules run on desktop Python. See spec §7.1. |
+| 7 | **Motor control** | Direct PCA9685 register writes — no external library | Kitronik official library evaluated; direct register writes chosen (same pattern as `test_m02.py`). No `lib/` dependency needed. See spec §3.6. |
+| 8 | **Firmware testing** | Desktop pytest + on-hardware manual tests | CircuitPython-only modules (`busio`, `digitalio`, `board`, etc.) stubbed via `sys.modules` mocking in `tests/conftest.py`. Firmware source uses unconditional imports; stubs are transparent. See spec §7.1. |
 | 9 | **Q-Learning: sim vs robot** | Independent implementations, no transfer | Simulator for demos, robot for class. Same algorithm, separate Q-tables. See spec [Appendix A, Q4]. |
 | 10 | **Simulator physics** | Differential drive model | Two-wheel model with independent motor speeds. See spec [Appendix A, Q11]. |
 
@@ -210,7 +210,7 @@ Each milestone contains one or more phases. Each phase has a specific deliverabl
 * CLI: `generate`, `validate`, `tiles` commands (spec §4.5)
 
 **Test-gates:**
-1. `python track_designer.py tiles` lists all 11 tile types
+1. `python track_designer.py tiles` lists all 12 tile types
 2. `python track_designer.py validate tracks/simple_oval.json` passes without errors
 3. `python track_designer.py generate tracks/simple_oval.json -o output/simple_oval.pdf` produces a valid PDF
 4. Generated PDF has correct page count (one per non-blank tile)
@@ -650,6 +650,7 @@ Risks from spec §9 plus development-specific risks. Sorted by impact.
 | R8 | **Track tile alignment when printed** — printer margins may cause misalignment between tiles | Software | Low | Registration marks built into Track Designer (M1). Test with Makersmiths printer at M1 Phase 1.2. | Open |
 | R9 | **Kitronik H-bridge IC unconfirmed** — assumed DRV8833; actual IC may differ | Hardware | Low | Inspect board at M2. PCA9685 control interface unchanged regardless of H-bridge IC. | Open |
 | R10 | **Development time overrun** — 13 weeks is tight for 3 software systems | Schedule | Medium | Milestones 8–9 are explicit stretch goals. Simulator (M7) is off critical path and can be descoped. Core course (8 classes) needs only M0–M6 + M10. | Open |
+| R11 | **Track Designer quality** — current implementation (Claude Code-generated tile engine) required significant post-hoc bug fixing; tile connectivity rules are fragile and track layouts must be hand-verified | Software | Medium | Investigate existing open-source LFR track design tools or tile-based track editors that could replace or supplement the current implementation before M10 print run. Evaluate before committing to further Track Designer development. | Open |
 
 ---
 
@@ -662,8 +663,8 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 | Milestone | Description | Target Week | Status | Date Completed | Notes |
 |:----------|:-----------|:-----------|:-------|:---------------|:------|
 | M0 | Project Bootstrap | Week 1 | Complete | 2026-03-17 | — |
-| M1 | Line Track Designer | Week 2 | Not Started | — | — |
-| M2 | Firmware Foundation DS3–DS5 | Week 4 | Not Started | — | — |
+| M1 | Line Track Designer | Week 2 | Complete | 2026-03-18 | All test-gates passed; manual print verification pending. See R11. |
+| M2 | Firmware Foundation DS3–DS5 | Week 4 | In Progress | — | Desktop phases complete (13/13 tests pass); hardware gates pending |
 | M3 | Firmware Sensor Array DS6–DS7 | Week 6 | Not Started | — | Blocked by QTRX delivery for HW testing |
 | M4 | Firmware WiFi + Browser UI DS8 | Week 7 | Not Started | — | — |
 | M5 | Firmware Speed Sensors DS9 | Week 8 | Not Started | — | — |
@@ -679,11 +680,11 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 |:----------|:------|:-----------|:-------|:---------------|:------|
 | M0 | 0.1 | Repo & tooling setup | Complete | 2026-03-17 | All 4 gates passed |
 | M0 | 0.2 | Hardware verification | Complete | 2026-03-17 | All 3 gates passed |
-| M1 | 1.1 | Track Designer core engine | Not Started | — | — |
-| M1 | 1.2 | Course track designs | Not Started | — | — |
-| M2 | 2.1 | Firmware architecture & motor driver | Not Started | — | — |
-| M2 | 2.2 | IR pair sensor module | Not Started | — | — |
-| M2 | 2.3 | Bang-bang controller & first line follower | Not Started | — | — |
+| M1 | 1.1 | Track Designer core engine | Complete | 2026-03-17 | All 5 automated gates passed |
+| M1 | 1.2 | Course track designs | Complete | 2026-03-18 | All 6 tracks valid + PDFs generated; tile drawing bugs fixed 2026-03-18; manual print check pending |
+| M2 | 2.1 | Firmware architecture & motor driver | Desktop complete | 2026-03-18 | All desktop gates pass; HW gates (motor spin, polarity) pending |
+| M2 | 2.2 | IR pair sensor module | Desktop complete | 2026-03-18 | All desktop gates pass; HW gate (IR reads over tape) pending |
+| M2 | 2.3 | Bang-bang controller & first line follower | Desktop complete | 2026-03-18 | All desktop gates pass; HW gates (oval lap, recovery) pending |
 | M3 | 3.1 | QTRX sensor array driver | Not Started | — | — |
 | M3 | 3.2 | Proportional controller + integration | Not Started | — | — |
 | M4 | 4.1 | WiFi access point | Not Started | — | — |

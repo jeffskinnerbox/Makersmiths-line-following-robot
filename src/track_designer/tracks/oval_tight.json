@@ -1,0 +1,12 @@
+{
+    "name": "Oval Tight",
+    "description": "Compact oval with short straights — tests sensor array improvement over IR pair on tighter curves",
+    "grid_columns": 3,
+    "grid_rows": 3,
+    "line_width_mm": 19,
+    "tiles": [
+        ["curve_ne",  "straight_h", "curve_nw"  ],
+        ["straight_v", "blank",     "straight_v"],
+        ["curve_se",  "straight_h", "curve_sw"  ]
+    ]
+}

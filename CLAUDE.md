@@ -43,6 +43,7 @@ Skills in `.claude/skills/` are auto-invoked when requests match their descripti
 
 - `/create-syllabus` — generate course syllabus using `syllabus_generator` skill
 - `/create-lesson-plan [spec-file]` — generate lesson plan using `lesson_plan_generator` skill
+- `/pptx_maker [input-file]` — generate a PowerPoint from any doc (Markdown, CSV, JSON, etc.)
 
 ## Document Status
 
@@ -89,11 +90,49 @@ See `.claude/skills/shared/definitions.md` for authoritative definitions of:
 - **Speed sensing:** Speed Sensor Module (2×, one per wheel, added at DS9)
 - **6 LFRs** total (5 students + 1 instructor demo unit)
 
+## Line Track Designer (`src/track_designer/`)
+
+CLI tool that generates printable PDF tile sheets for LFR floor tracks. **M1 complete.**
+
+```bash
+cd src/track_designer
+python track_designer.py tiles                                          # list tile types
+python track_designer.py validate tracks/simple_oval.json              # validate JSON
+python track_designer.py generate tracks/simple_oval.json -o output/simple_oval.pdf --preview
+python track_designer.py generate tracks/simple_oval.json -o output/simple_oval.pdf --line-width 25
+../../.venv/bin/pytest tests/ -v                                        # run all tests
+../../.venv/bin/pytest tests/ -v -k test_pdf_generates                  # run single test
+```
+
+Key files: `track_designer.py` (CLI), `tile_registry.py` (12 tile draw functions), `pdf_generator.py` (reportlab), `validator.py` + `schema.py` (jsonschema validation). Track JSONs in `tracks/`, generated PDFs in `output/`.
+
+All 6 course tracks: `simple_oval`, `oval_tight`, `figure_eight`, `figure_eight_chicane`, `complex_course`, `competition_course`.
+
 ## Software to Be Built (pre-course)
 
-- **LFR firmware** (CircuitPython) — modular, each DS swaps a subsystem
-- **Line Track Designer** — Python, Ubuntu, generates printable 8.5×11" tile tracks (4×3 grid max)
-- **LFR Simulator** — Python 2D visual simulation for instructor demos (PID tuning, sensor comparison)
+| System | Status | Location |
+|:-------|:-------|:---------|
+| **Line Track Designer** | **M1 complete** | `src/track_designer/` |
+| **LFR Firmware** (CircuitPython) — modular, each DS swaps a subsystem | **M2 desktop complete** (hardware gates pending) | `src/firmware/` |
+| **LFR Simulator** — Python + Pygame, 2D visual sim for instructor demos | Not started | `src/simulator/` (planned) |
+
+## LFR Firmware (`src/firmware/`)
+
+CircuitPython firmware for the Pico W. **M2 desktop phases complete** — all 13 desktop test-gates pass; hardware gates (motor spin, IR reads, oval lap) pending physical hardware session.
+
+```bash
+# Desktop tests (all phases)
+.venv/bin/pytest src/firmware/tests/ -v
+
+# Single phase
+.venv/bin/pytest src/firmware/tests/test_phase21.py -v
+
+# Hardware tests — copy main.py to CIRCUITPY/main.py, monitor via Mu Editor serial console
+# Motor/I2C verification: src/firmware/test_m02.py
+```
+
+Key files: `config.py` (DS3 factory functions), `main.py` (cooperative polling loop), `sensors/ir_pair.py`, `controllers/bang_bang.py`, `motors/kitronik.py` (direct PCA9685 register writes).
+Tests in `tests/` stub CircuitPython modules (`busio`, `digitalio`, `board`, etc.) via `sys.modules` mocking in `conftest.py`.
 
 ## Markdown Linting
 
@@ -102,6 +141,8 @@ The project uses `markdownlint-cli2` (configured in `.markdownlint-cli2.jsonc`).
 ```bash
 markdownlint-cli2 docs/*.md lecture_notes/*.md
 ```
+
+Do not run markdownlint on `input/` — those files are instructor-owned and not linted.
 
 ## File Naming Conventions
 
