@@ -126,26 +126,27 @@ Valid tile types: `blank`, `straight_h`, `straight_v`, `curve_ne/nw/se/sw`, `cro
 | System | Status | Location |
 |:-------|:-------|:---------|
 | **Line Track Designer** | **M1 complete** | `src/track_designer/` |
-| **LFR Firmware** (CircuitPython) — modular, each DS swaps a subsystem | **M2 desktop complete** (hardware gates pending) | `src/firmware/` |
+| **LFR Firmware** (CircuitPython) — modular, each DS swaps a subsystem | **M2 + M3 Ph3.1 desktop complete** (hardware gates pending) | `src/firmware/` |
 | **LFR Simulator** — Python + Pygame, 2D visual sim for instructor demos | Not started | `src/simulator/` (planned) |
 
 ## LFR Firmware (`src/firmware/`)
 
-CircuitPython firmware for the Pico W. **M2 desktop phases complete** — all 13 desktop test-gates pass; hardware gates (motor spin, IR reads, oval lap) pending physical hardware session.
+CircuitPython firmware for the Pico W. **M2 + M3 Phase 3.1 desktop complete** — all 57 desktop tests pass; hardware gates pending physical hardware session.
 
 ```bash
 # Desktop tests (all phases)
 .venv/bin/pytest src/firmware/tests/ -v
 
-# Single phase
-.venv/bin/pytest src/firmware/tests/test_phase21.py -v
+# Single phase — naming: test_phase{M}{P}.py (M=milestone, P=phase)
+.venv/bin/pytest src/firmware/tests/test_phase21.py -v   # M2 Phase 2.1
+.venv/bin/pytest src/firmware/tests/test_phase31.py -v   # M3 Phase 3.1
 
 # Hardware tests — copy main.py to CIRCUITPY/main.py, monitor via Mu Editor serial console
 # Motor/I2C verification: src/firmware/test_m02.py
 ```
 
-Key files: `config.py` (DS3 factory functions), `main.py` (cooperative polling loop), `sensors/ir_pair.py`, `controllers/bang_bang.py`, `motors/kitronik.py` (direct PCA9685 register writes).
-Tests in `tests/` stub CircuitPython modules (`busio`, `digitalio`, `board`, etc.) via `sys.modules` mocking in `conftest.py`.
+Key files: `config.py` (DS3 factory functions), `main.py` (cooperative polling loop), `sensors/ir_pair.py`, `sensors/qtrx_array.py` (8-ch RC timing, GP0–GP7), `controllers/bang_bang.py`, `motors/kitronik.py` (direct PCA9685 register writes).
+Tests in `tests/` stub CircuitPython modules (`busio`, `digitalio`, `board`, `analogio`, `microcontroller`) via `sys.modules` mocking in `conftest.py`. The `time` module is **not** stubbed — Python stdlib is used. At M5, `countio` will also need stubbing.
 
 ### Firmware Plugin Architecture
 
@@ -160,6 +161,8 @@ Each Design Session swaps one subsystem. To add a module for a new DS:
 - `Controller.update(position, dt)` → `(left_speed, right_speed)` floats
 - `Controller.get_params()` / `set_params(dict)` / `param_definitions` — browser UI hooks for runtime tuning
 - `MotorDriver.set_speeds(left, right)` → None
+
+**Desktop test pattern for hardware sensors:** Extract all GPIO/timing I/O into a single internal method (e.g., `_read_raw_timings()`) and patch that method in tests with synthetic data. Never patch individual pin objects. See `sensors/qtrx_array.py` + `tests/test_phase31.py` as the reference implementation.
 
 ### CIRCUITPY Deployment
 
