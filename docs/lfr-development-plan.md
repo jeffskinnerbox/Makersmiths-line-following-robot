@@ -665,7 +665,7 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 | M0 | Project Bootstrap | Week 1 | Complete | 2026-03-17 | — |
 | M1 | Line Track Designer | Week 2 | Complete | 2026-03-18 | All test-gates passed; manual print verification pending. See R11. |
 | M2 | Firmware Foundation DS3–DS5 | Week 4 | In Progress | — | Desktop phases complete (13/13 tests pass); hardware gates pending |
-| M3 | Firmware Sensor Array DS6–DS7 | Week 6 | Not Started | — | Blocked by QTRX delivery for HW testing |
+| M3 | Firmware Sensor Array DS6–DS7 | Week 6 | In Progress | — | Phase 3.1 desktop complete; HW testing blocked by QTRX delivery |
 | M4 | Firmware WiFi + Browser UI DS8 | Week 7 | Not Started | — | — |
 | M5 | Firmware Speed Sensors DS9 | Week 8 | Not Started | — | — |
 | M6 | Firmware PID DS10 | Week 9 | Not Started | — | Core course capstone |
@@ -685,7 +685,7 @@ Update this table as phases are completed. Date format: YYYY-MM-DD.
 | M2 | 2.1 | Firmware architecture & motor driver | Desktop complete | 2026-03-18 | All desktop gates pass; HW gates (motor spin, polarity) pending |
 | M2 | 2.2 | IR pair sensor module | Desktop complete | 2026-03-18 | All desktop gates pass; HW gate (IR reads over tape) pending |
 | M2 | 2.3 | Bang-bang controller & first line follower | Desktop complete | 2026-03-18 | All desktop gates pass; HW gates (oval lap, recovery) pending |
-| M3 | 3.1 | QTRX sensor array driver | Not Started | — | — |
+| M3 | 3.1 | QTRX sensor array driver | Desktop complete | 2026-03-19 | 23/23 desktop tests pass; HW gates pending QTRX delivery |
 | M3 | 3.2 | Proportional controller + integration | Not Started | — | — |
 | M4 | 4.1 | WiFi access point | Not Started | — | — |
 | M4 | 4.2 | Web server & browser dashboard | Not Started | — | — |
