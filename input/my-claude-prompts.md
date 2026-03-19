@@ -194,6 +194,9 @@ Review all @input/*.md and @docs/*.md files and make sure the are consistent and
 
 ---
 
+
+---
+
 ## Working With Claude Code
 Start with the following:
 
@@ -208,10 +211,23 @@ Start with the following:
 /mode plan
 ```
 
+### Claude Code Prompt for exploring the use of sensor array
+* explain to me how the QTRX-MD-08RC will operate on the line following robot
+* explain to me how many Pico pins will be used to support this array
+* After building the entire line following robot, how many unsed gpio pins remain?
+* Is there away for the QTRX-MD-08RC to use less pins maybe using I2C?
+  Does Pololu offer alternative board that uses less pins but with 8-channels
+
+### Claude Code Prompt for Wiring Plan
+In a tabular format, give me wiring plan between the Robotics Motor Driver Board and all other sensors and
+device on the LFR. I expect one table for each of the milestones identified. Make sure to identify each
+connection with the markings on the boards & devices.  Place your wiring plan in @/docs/lfr-wiring-plan.md
 
 ### Claude Code Interaction
-
 I asked Claude Code to guide me on what needs to be done and it stepped me through the development plan (aka `lfr-development-plan.md`)
+
+### Periodically DO This
+Review all @input/*.md and @docs/*.md files and make sure the are consistent and correct.
 
 ---
 

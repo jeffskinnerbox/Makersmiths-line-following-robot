@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repo is a course-preparation workspace for a **Line Following Robot (LFR)** makerspace course at [Makersmiths](https://makersmiths.org/). The course runs 8 weeks (2 hrs/session), targeting students ages 12–18, starting June 15 2026. The course is not yet taught — all materials must be created before it starts.
 
-The LFR evolves across ~12 Design Sessions: analog kit → Raspberry Pi Pico W + CircuitPython → IR sensor array → PID controller → Kalman filter → Q-Learning controller.
+The LFR evolves across ~13 Design Sessions: analog kit → Raspberry Pi Pico W + CircuitPython → IR sensor array → PID controller → Kalman filter → Q-Learning controller.
 
 ## Directory Layout
 
@@ -55,6 +55,7 @@ Generated docs in `docs/` and their current state:
 | 2 | Lesson Plan | `docs/lfr-lesson-plan.md` | Done |
 | 3 | Specification | `docs/lfr-specification.md` | Done |
 | 4 | Development Plan | `docs/lfr-development-plan.md` | Done |
+| 5 | Wiring Plan | `docs/lfr-wiring-plan.md` | Done |
 
 ## Workflow for Generating Course Documents
 
@@ -108,6 +109,18 @@ Key files: `track_designer.py` (CLI), `tile_registry.py` (12 tile draw functions
 
 All 6 course tracks: `simple_oval`, `oval_tight`, `figure_eight`, `figure_eight_chicane`, `complex_course`, `competition_course`.
 
+**Track JSON format** — a 2D grid of tile-type strings, max 4×3 tiles (each tile = one 8.5×11" page):
+
+```json
+{ "name": "Simple Oval", "description": "...", "grid_columns": 4, "grid_rows": 3,
+  "line_width_mm": 19,
+  "tiles": [["curve_ne","straight_h","straight_h","curve_nw"],
+            ["straight_v","blank","blank","straight_v"],
+            ["curve_se","straight_h","straight_h","curve_sw"]] }
+```
+
+Valid tile types: `blank`, `straight_h`, `straight_v`, `curve_ne/nw/se/sw`, `cross`, `chicane_lr`, `chicane_rl`, `start_h`, `sharp_90_ne`.
+
 ## Software to Be Built (pre-course)
 
 | System | Status | Location |
@@ -133,6 +146,35 @@ CircuitPython firmware for the Pico W. **M2 desktop phases complete** — all 13
 
 Key files: `config.py` (DS3 factory functions), `main.py` (cooperative polling loop), `sensors/ir_pair.py`, `controllers/bang_bang.py`, `motors/kitronik.py` (direct PCA9685 register writes).
 Tests in `tests/` stub CircuitPython modules (`busio`, `digitalio`, `board`, etc.) via `sys.modules` mocking in `conftest.py`.
+
+### Firmware Plugin Architecture
+
+Each Design Session swaps one subsystem. To add a module for a new DS:
+
+1. Create `sensors/foo.py`, `controllers/foo.py`, or `motors/foo.py` implementing the base class in the corresponding `base.py`
+2. Update `config.py`: change the constant (`SENSOR`, `CONTROLLER`, etc.) and add/update the factory function
+3. `main.py` never changes — it calls `config.get_sensor()`, `config.get_controller()`, `config.get_motor_driver()`, `config.get_web_server()`
+
+**Base class contracts** (all values normalized -1.0 to +1.0):
+- `LineSensor.read_position()` → float (-1.0 = line far left, 0.0 = centered, +1.0 = line far right)
+- `Controller.update(position, dt)` → `(left_speed, right_speed)` floats
+- `Controller.get_params()` / `set_params(dict)` / `param_definitions` — browser UI hooks for runtime tuning
+- `MotorDriver.set_speeds(left, right)` → None
+
+### CIRCUITPY Deployment
+
+To deploy firmware to a Pico W, copy the entire firmware source tree to the CIRCUITPY drive:
+
+```bash
+# Full deployment (all files needed on the Pico)
+cp src/firmware/main.py   /media/$USER/CIRCUITPY/main.py
+cp src/firmware/config.py /media/$USER/CIRCUITPY/config.py
+cp -r src/firmware/sensors      /media/$USER/CIRCUITPY/
+cp -r src/firmware/controllers  /media/$USER/CIRCUITPY/
+cp -r src/firmware/motors       /media/$USER/CIRCUITPY/
+```
+
+For hardware test only: copy `src/firmware/test_m02.py` → `CIRCUITPY/main.py` (no other files needed).
 
 ## Markdown Linting
 

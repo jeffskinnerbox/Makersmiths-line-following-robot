@@ -402,7 +402,7 @@ Each milestone contains one or more phases. Each phase has a specific deliverabl
 
 ### Milestone 6: Firmware PID — DS10
 
-**Weeks:** 8–9 (May 4–17)
+**Weeks:** 9 (May 11–17)
 **Purpose:** Full PID controller with browser-based tuning
 **Class unlocked:** Class 8 (DS10) — core course capstone
 **Spec reference:** §3.5.3, §6.2 DS10 controls
